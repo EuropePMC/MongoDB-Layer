@@ -27,12 +27,12 @@ PRODUCTION_ROUTER(new String[]{"prod_1", "prod_2"})
 It has two dbNames. For each element of the dbNames list there will be a specific set of properties in the file src/main/resources/mongodb.properties that hosts the connection details to the relative  MongoDB server:
 
 <pre> 
- #properties for **prod_1** database
-hostName.**prod_1**=mongos-prod-1.ebi.ac.uk
-port.**prod_1**=27017
-databaseAuthentication.**prod_1**=admin
-userName.**prod_1**=admin_user
-password.**prod_1**=admin_user_password
+ #properties for prod_1 database
+hostName.prod_1=mongos-prod-1.ebi.ac.uk
+port.prod_1=27017
+databaseAuthentication.prod_1=admin
+userName.prod_1=admin_user
+password.prod_1=admin_user_password
 </pre>
 
 The match between the **dbName** value and the right set of properties is determined reading the properties with name "hostName.+**dbName**" and so on.
@@ -40,12 +40,12 @@ The match between the **dbName** value and the right set of properties is determ
 Similarly for the **prod_2** dbName there will be a set of properties like:
 
 <pre> 
- #properties for **prod_2** database
-hostName.**prod_2**=mongos-prod-2.ebi.ac.uk
-port.**prod_2**=27017
-databaseAuthentication.**prod_2**=admin
-userName.**prod_2**=admin_user
-password.**prod_2**=admin_user_password
+ #properties for prod_2 database
+hostName.prod_2=mongos-prod-2.ebi.ac.uk
+port.prod_2=27017
+databaseAuthentication.prod_2=admin
+userName.prod_2=admin_user
+password.prod_2=admin_user_password
 </pre>
  
  This means that the DAO object created previously with the instruction
