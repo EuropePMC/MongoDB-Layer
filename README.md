@@ -7,9 +7,9 @@ The project is written in JAVA 8 and uses [Maven][2] as development tool. The ar
 Each operation of the interface has two different versions:
 
  1. MongoDB standard Java Driver version: it uses the standard MongoDB driver classes.
- 2. A POJO Java version using the [MongoJack][3] library: it allows the usage of normal Java Beans (POJO) that will map exactly the structure of the documents inside the MongoDB collections.
+ 2. A POJO Java version using the [MongoJack][3] library: it allows the usage of normal Java Beans (POJO) that map exactly the structure of the documents inside the MongoDB collections.
 
-The CRUD interface is represented by the class uk.ac.ebi.literature.mongodb.dao.ICrudDAO. It is possible to find comments and examples of usage of every operations defined in the interface.
+The CRUD interface is represented by the class uk.ac.ebi.literature.mongodb.dao.ICrudDAO. It is possible to find comments and examples of usage of every operations inside the interface itself.
 
 The implementation of the ICrudDAO interface is contained into the class uk.ac.ebi.literature.mongodb.dao.impl.CrudDaoImpl. An example of creation of one DAO object is:
 
@@ -17,17 +17,17 @@ The implementation of the ICrudDAO interface is contained into the class uk.ac.e
 	ICrudDAO dao = new CrudDaoImpl(MONGODB_URL.PRODUCTION_ROUTER);
 </pre>
 
-The input parameter is an element of the enum MONGODB_URL defined inside the interface ICrudDAO. Every element of this enum will translate to a MongoDB server address (or a list of them if the connection is made to a MongoDB cluster with multiple servers).
+The input parameter is an element of the enum MONGODB_URL defined inside the interface ICrudDAO. Every element of this enum translates to a MongoDB server address (or a list of them if the connection is made to a MongoDB cluster with multiple servers).
 Every element of the MONGODB_URL enum has a list of dbNames associated. For example consider the following element:
 
 <pre>
 PRODUCTION_ROUTER(new String[]{"prod_1", "prod_2"})
 </pre>
 
-It has two dbNames. For each element of the dbNames list there will be a specific set of properties in the file src/main/resources/mongodb.properties that hosts the connection details to the relative  MongoDB server:
+It has two dbNames. For each element of the dbNames list there is a specific set of properties in the file src/main/resources/mongodb.properties that hosts the connection details to the relative  MongoDB server:
 
 <pre> 
- #properties for prod_1 database
+ #set of properties for prod_1 dbName
 hostName.prod_1=mongos-prod-1.ebi.ac.uk
 port.prod_1=27017
 databaseAuthentication.prod_1=admin
@@ -37,10 +37,10 @@ password.prod_1=admin_user_password
 
 The match between the **dbName** value and the right set of properties is determined reading the properties with name "hostName.+**dbName**" and so on.
 
-Similarly for the **prod_2** dbName there will be a set of properties like:
+Similarly for the **prod_2** dbName there is a set of properties like:
 
 <pre> 
- #properties for prod_2 database
+ #set of properties for prod_2 dbName
 hostName.prod_2=mongos-prod-2.ebi.ac.uk
 port.prod_2=27017
 databaseAuthentication.prod_2=admin
